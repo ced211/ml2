@@ -8,16 +8,21 @@ sig_n = [1 0 ; 0 1];
 sig_p = [2 0; 0 0.5];
 
 rng default  % For reproducibility
-nb_elem = 50000; % Number of elements for each gaussian 
+nb_elem = 100000; % Number of elements for each gaussian 
 
 N = mvnrnd(mu_n,sig_n,nb_elem);
 P = mvnrnd(mu_p,sig_p,nb_elem);
 
 figure
-plot(N(:,1),N(:,2),'o')
+plot(N(:,1),N(:,2),'.','Color','red')
 
 figure 
-plot (P(:,1),P(:,2),'+')
+plot(P(:,1),P(:,2),'.','Color','green')
+
+figure
+plot(N(:,1),N(:,2),'.','Color', 'red')
+hold on
+plot(P(:,1),P(:,2),'.','Color','green')
 
 err = 0;
 
